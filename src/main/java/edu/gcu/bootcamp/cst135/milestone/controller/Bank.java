@@ -15,9 +15,7 @@ public class Bank {
 	}
 
 	public void viewCustomerMenu() {
-
-		try {
-			String option;
+			int option;
 			do {
 				System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 				System.out.println("                MAIN MENU");
@@ -33,14 +31,49 @@ public class Bank {
 				System.out.println(" 6: Get monthly statement");
 				System.out.println("------------------------");
 				System.out.println(" 9: : Logout");
-				option = scanner.nextLine();
-				processCustomerMenu(Integer.parseInt(option));
-			} while (Integer.parseInt(option) != 9);
-		}catch(Exception e) {
-			System.out.println("Wrong input\n");
-			viewCustomerMenu();
+				option = getUserMenuChoice();
+				processCustomerMenu(option);
+			} while (option != 9);
+		
 		}
+
+	
+	private int getUserMenuChoice() {
+			int y = 1;
+			
+			int x = 0;
+					while (x == 0) {
+						String z = scanner.nextLine();
+						
+						try {
+							y = Integer.parseInt(z);
+							x =1;
+						}
+						catch (Exception e) {
+							System.out.println("We’re sorry an error occurred.  Our engineers are working on the problem");
+							x = 0;
+						}
+					}
+			return y;
 	}
+	private double getUserAmount() {
+		double y = 1;
+		
+		int x = 0;
+				while (x == 0) {
+					String z = scanner.nextLine();
+					
+					try {
+						y = Double.parseDouble(z);
+						x =1;
+					}
+					catch (Exception e) {
+						System.out.println("Expecting a cash value. Please try again");
+					}
+				}
+				return y;
+	}
+	
 
 	private void processCustomerMenu(int parseInt) {
 
@@ -81,16 +114,13 @@ public class Bank {
 
 	private void viewWithdrawalChecking() {
 
-		try {
+		
 			System.out.println("How much would you like to withdraw: ");
-			double input = scanner.nextDouble();
-			scanner.nextLine();
+			double input = getUserAmount();
 			processWithdrawalChecking(input);
-		}catch(Exception e) {
-			System.out.println("Wrong input\n");
-			viewWithdrawalChecking();
 		}
-	}
+		
+	
 
 	private void processWithdrawalChecking(double input) {
 
@@ -106,15 +136,11 @@ public class Bank {
 
 	private void viewDepositSavings() {
 
-		try {
+		
 			System.out.println("How much would you like to deposit: ");
-			double input = scanner.nextDouble();
-			scanner.nextLine();
+			double input = getUserAmount();
 			processDepositSavings(input);
-		}catch(Exception e) {
-			System.out.println("Wrong input\n");
-			viewDepositSavings();
-		}
+		
 	}
 
 	private void processDepositSavings(double input) {
@@ -124,16 +150,12 @@ public class Bank {
 
 	private void viewDepositChecking() {
 
-		try {
+		
 			System.out.println("How much would you like to deposit: ");
-			double input = scanner.nextDouble();
-			scanner.nextLine();
+			double input = getUserAmount();
 			processDepositChecking(input);
-		}catch(Exception e) {
-			System.out.println("Wrong input\n");
-			viewDepositChecking();
 		}
-	}
+	
 
 	private void processDepositChecking(double input) {
 
@@ -142,16 +164,12 @@ public class Bank {
 
 	private void viewWithdrawalSavings() {
 
-		try {
+		
 			System.out.println("How much would you like to withdraw: ");
-			double input = scanner.nextDouble();
-			scanner.nextLine();
+			double input = getUserAmount();
 			processWithdrawalSavings(input);
-		}catch(Exception e) {
-			System.out.println("Wrong input\n");
-			viewWithdrawalSavings();
 		}
-	}
+	
 
 	private void processWithdrawalSavings(double input) {
 
