@@ -1,9 +1,10 @@
 package edu.gcu.bootcamp.cst135.milestone.model;
-
+import java.util.logging.Logger;
 public class Checking extends Account {
+	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	private double overdraft;
-	
+
 	public double getOverdraft() {
 		return overdraft;
 	}

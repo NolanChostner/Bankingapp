@@ -1,11 +1,12 @@
 package edu.gcu.bootcamp.cst135.milestone.model;
-
+import java.util.logging.Logger;
 public class Saving extends Account {
 
 	private double minBalance;
 	private double interest;
 	private double serviceFee;
-	
+	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	public double getMinBalance() {
 		return minBalance;
 	}
@@ -19,7 +20,7 @@ public class Saving extends Account {
 	}
 
 	public void setInterest(double interest) {
-		this.interest = interest/12;
+		this.interest = interest / 12;
 	}
 
 	public double getServiceFee() {
@@ -30,11 +31,12 @@ public class Saving extends Account {
 		this.serviceFee = serviceFee;
 	}
 
-	public Saving(String accountNum, double balance, double minBalance, double serviceFee , double interest) {
-		
+	public Saving(String accountNum, double balance, double minBalance, double serviceFee, double interest) {
+
 		super(accountNum, balance);
 		this.minBalance = minBalance;
 		this.serviceFee = serviceFee;
-		this.interest = interest/12;		
+		this.interest = interest / 12;
+		
 	}
 }
